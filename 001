@@ -1,0 +1,31 @@
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+	int A[10], max;
+	bool a = false;
+
+	cout << "Enter mass: \n";
+	for (string c; getline(cin, c); ) 
+	{
+		istringstream stream(c);
+		for (int i = 0; i < 10; ++i) 
+		{
+			if (!(stream >> A[i])) 
+			{
+				a = true;
+				break;
+			}
+		}
+		max = A[0];
+		for (int i = 0; i < 10; i++) 
+			if (A[i]>max) max = A[i];
+		break;
+	}
+	if (!a) cout << "Result: \n" << max << '\n';
+	else cout << "An error has occured while reading numbers from line." << endl;
+	return 0;
+}
