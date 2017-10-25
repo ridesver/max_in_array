@@ -1,0 +1,51 @@
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+	int A[10], B[10], max1, max2;
+	bool a = false, b = false;
+	
+	cout << "Enter first mass: \n";
+	for (string c; getline(cin, c); ) 
+	{
+		istringstream stream(c);
+		for (int i = 0; i < 10; ++i) 
+		{
+			if (!(stream >> A[i])) 
+			{
+				a = true;
+				break;
+			}
+		}
+		max1 = A[0];
+		for (int i = 0; i < 10; i++) 
+			if (A[i]>max1) max1 = A[i];
+		break;
+	}
+
+	cout << "Enter second mass: \n";
+	for (string d; getline(cin, d); ) 
+	{
+		istringstream stream(d);
+		for (int i = 0; i < 10; ++i)
+		{
+			if (!(stream >> B[i])) 
+			{
+				b = true;
+				break;
+			}
+		}
+		max2 = B[0];
+		for (int i = 0; i < 10; i++) 
+			if (B[i] > max2) max2 = B[i];
+		break;
+	}
+
+	if (!a && !b) cout << "Result: \n" << max1 + max2 << '\n';
+	else cout << "An error has occured while reading numbers from line." << endl;
+
+	return 0;
+}
