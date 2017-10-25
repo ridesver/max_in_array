@@ -1,0 +1,60 @@
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+int main() 
+{
+	int A[10], B[10], max1, sum;
+	bool a= false;
+
+	cout << "Enter first mass: \n";
+	for (string c; getline(cin, c); ) 
+	{
+		istringstream stream(c);
+		for (int i = 0; i < 10; ++i) 
+		{
+			if (!(stream >> A[i])) 
+			{
+				a= true;
+				break;
+			}
+		}
+		break;
+	}
+
+	if (a = false)
+	{
+		cout << "An error has occured while reading numbers from line. \n" << endl;
+		return 0;
+	}
+
+	cout << "Enter second mass: \n";
+	for (string d; getline(cin, d); ) 
+	{
+		istringstream stream(d);
+		for (int i = 0; i < 10; ++i) 
+		{
+			if (!(stream >> B[i])) 
+			{
+				a= true;
+				break;
+			}
+		}
+		break;
+	}
+
+	if (!a) 
+	{
+		max1 = A[0];
+		sum = max1 + B[0];
+		for (int i = 1; i < 10; ++i) 
+		{
+			if (max1 < A[i]) max1 = A[i];
+			if (sum < (max1 + B[i])) sum = max1 + B[i];
+		}
+		cout << "Result: \n" << sum << '\n' ;
+	}
+	else cout << "An error has occured while reading numbers from line. \n" << endl;
+	return 0;
+}
